@@ -1,0 +1,20 @@
+class Solution
+{
+    public:
+    void findSumOfDiagonal(Node *root, int ind, unordered_map<int, int> &mp)
+    {
+        if(root == nullptr)
+            return;
+        mp[ind] += root->data;
+        findSumOfDiagonal(root->left, ind + 1, mp);
+        findSumOfDiagonal(root->right, ind, mp);
+    }
+    vector <int> diagonalSum(Node* root) {
+        unordered_map<int, int> mp;
+        findSumOfDiagonal(root, 0, mp);
+        vector<int> ans(mp.size());
+        for(auto it : mp)
+            ans[it.first] = it.second;
+        return ans;
+    }
+};
