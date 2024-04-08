@@ -1,0 +1,29 @@
+//c++
+Node *removeDuplicates(Node *head)
+{
+  Node *curr = head->next, *prev = head;
+  //if head is NULL(no. of nodes zero bi ho sakte hai )
+  if(!head || !head->next)
+  return head;
+  
+  
+  while(curr)
+  {
+      //duplicate milega
+      if(curr->data==prev->data)
+      {
+          prev->next = curr->next;
+          delete curr;
+          curr = prev->next;
+          
+      }
+      //Nahi milega 
+      else
+      {
+          prev = prev->next;
+          curr=curr->next;
+          
+      }
+  }
+  return head;
+}
