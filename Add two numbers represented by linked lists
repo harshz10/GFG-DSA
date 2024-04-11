@@ -1,5 +1,9 @@
 //C++
-Node *reverse(Node *curr,Node *prev)
+class Solution
+{
+    public:
+    //Function to add two numbers represented by linked list.
+  Node *reverse(Node *curr,Node *prev)
     {
         if(curr == NULL)
         return prev;
@@ -54,3 +58,5 @@ Node *reverse(Node *curr,Node *prev)
             head=head->next;
         }
         return head;
+    }
+};
