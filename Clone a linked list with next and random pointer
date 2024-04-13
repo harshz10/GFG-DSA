@@ -1,0 +1,156 @@
+//C++
+//*****
+M-1
+class Solution
+{
+    public:
+    
+    Node* find(Node *curr1, Node *curr2, Node *x)
+    {
+        if(x==NULL)
+        return NULL;
+        
+        while(curr1!=x)
+        {
+            curr1=curr1->next;
+            curr2= curr2->next;
+        }
+        return curr2;
+    }
+    Node *copyList(Node *head)
+    {
+        //Write your code here
+        Node *headCopy = new Node(0);
+        Node *tailCopy = headCopy;
+        Node *temp = head;
+        
+        //clone Created without random pointer 
+        while(temp)
+        {
+            tailCopy->next = new Node(temp->data);
+            tailCopy = tailCopy->next;
+            temp=temp->next;
+        };
+        
+        tailCopy = headCopy;
+        headCopy = headCopy->next;
+        delete tailCopy;
+        
+        //Assign random pointer to the clone LL
+        tailCopy = headCopy;
+        temp = head;
+        while(temp)
+        {
+            tailCopy->arb = find(head,headCopy,temp->arb);
+            tailCopy=tailCopy->next;
+            temp = temp->next;
+            
+        }
+        
+        return headCopy;
+    }
+
+};
+
+M-2(optimize solution by the help of map)
+class Solution
+{
+    public:
+    
+    Node* find(Node *curr1, Node *curr2, Node *x)
+    {
+        if(x==NULL)
+        return NULL;
+        
+        while(curr1!=x)
+        {
+            curr1=curr1->next;
+            curr2= curr2->next;
+        }
+        return curr2;
+    }
+    Node *copyList(Node *head)
+    {
+        //Write your code here
+        Node *headCopy = new Node(0);
+        Node *tailCopy = headCopy;
+        Node *temp = head;
+        
+        //clone Created without random pointer 
+        while(temp)
+        {
+            tailCopy->next = new Node(temp->data);
+            tailCopy = tailCopy->next;
+            temp=temp->next;
+        };
+        
+        tailCopy = headCopy;
+        headCopy = headCopy->next;
+        delete tailCopy;
+        
+        //Assign random pointer to the clone LL
+        tailCopy = headCopy;
+        temp = head;
+        while(temp)
+        {
+            tailCopy->arb = find(head,headCopy,temp->arb);
+            tailCopy=tailCopy->next;
+            temp = temp->next;
+            
+        }
+        
+        return headCopy;
+    }
+
+};
+M-3(most optimize code)
+class Solution
+{
+    public:
+    
+    Node* find(Node *curr1, Node *curr2, Node *x)
+    {
+        if(x==NULL)
+        return NULL;
+        
+        while(curr1!=x)
+        {
+            curr1=curr1->next;
+            curr2= curr2->next;
+        }
+        return curr2;
+    }
+    Node *copyList(Node *head)
+    {
+        //Write your code here
+        Node *headCopy = new Node(0);
+        Node *tailCopy = headCopy;
+        Node *temp = head;
+        
+        //clone Created without random pointer 
+        while(temp)
+        {
+            tailCopy->next = new Node(temp->data);
+            tailCopy = tailCopy->next;
+            temp=temp->next;
+        };
+        
+        tailCopy = headCopy;
+        headCopy = headCopy->next;
+        delete tailCopy;
+        
+        //Assign random pointer to the clone LL
+        tailCopy = headCopy;
+        temp = head;
+        while(temp)
+        {
+            tailCopy->arb = find(head,headCopy,temp->arb);
+            tailCopy=tailCopy->next;
+            temp = temp->next;
+            
+        }
+        
+        return headCopy;
+    }
+
+};
