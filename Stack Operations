@@ -1,0 +1,31 @@
+//C++
+class Geeks
+{
+public:
+    static void insert(stack<int>& st, int x)
+    {
+        st.push(x);
+    }
+    
+    static void remove(stack<int>& st)
+    {
+        int x = st.top();
+        st.pop();
+    }
+    
+    static void headOf_Stack(stack<int>& st)
+    {
+        int x = st.top();
+        cout << x << " ";
+    }
+    
+    static void find(stack<int>& st, int val)
+    {
+        if(!st.empty() && st.top() == val) {
+            cout << "Yes" << endl;
+        }
+        else {
+            cout << "No" << endl;
+        }
+    }
+};
