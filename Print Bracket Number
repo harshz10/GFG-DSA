@@ -1,0 +1,29 @@
+//C++
+class Solution{
+public:	
+
+	vector<int> bracketNumbers(string S)
+	{
+	    // Your code goes here
+	    int count = 0;
+	    stack<int>ans;
+	    
+	    for(int i=0;i<S.size();i++)
+	    {
+	        //Opening bracket
+	        if(S[i]=='(')
+	        {
+	            count++;
+	            st.push_back(count);
+	            ans.push_back(count);
+	        }
+	        //Closing braket
+	        else if(S[i]==')')
+	        {
+	            ans.push_back(st.top());
+	            st.pop();
+	        }
+	    }
+	    return ans;
+	}
+};
