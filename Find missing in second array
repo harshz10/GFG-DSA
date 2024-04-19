@@ -1,0 +1,24 @@
+//C++
+
+M-1 //by using Set/map
+class Solution{
+	
+	
+	public:
+	vector<int> findMissing(int A[], int B[], int N, int M) 
+	{ 
+	    // Your code goes here
+	    vector<int>result;
+	    set<int>ans;
+	    for(int i=0;i<M;i++){
+	        ans.insert(B[i]);
+	    }
+	    for(int i=0;i<N;i++){
+	        if(ans.find(A[i])==ans.end()){
+	            result.push_back(A[i]);
+	        }
+	    }
+	    
+	    return result;
+	} 
+};
