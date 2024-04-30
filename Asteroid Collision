@@ -1,4 +1,4 @@
-//C++
+//C++ code 
 class Solution {
   public:
     vector<int> asteroidCollision(int N, vector<int> &asteroids) {
