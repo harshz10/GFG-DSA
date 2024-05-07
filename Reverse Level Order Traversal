@@ -1,0 +1,17 @@
+//C++
+vector<int> reverseLevelOrder(Node *root)
+{
+    // code here
+    queue<Node*> q;
+    vector<int> ans;
+    q.push(root);
+    while(q.size()){
+        Node *temp = q.front();
+        q.pop();
+        ans.push_back(temp->data);
+        if(temp->right)q.push(temp->right);
+        if(temp->left)q.push(temp->left);
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
