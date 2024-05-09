@@ -1,0 +1,37 @@
+//C++
+
+vector<long long> printFirstNegativeInteger(long long int A[],
+                                             long long int N, long long int K) {
+                                                 
+   vector<long long>ans;
+   queue<long long int>q;
+   
+   //k-1 element hai, push kar do negative elements
+   for(long long int i=0; i<K-1;i++)
+   {
+       if(A[i]<0)
+       q.push(i);
+   }
+   
+   for(long long int i = K-1;i<N;i++)
+   {
+       if(A[i]<0)
+       q.push(i);
+       
+       if(q.empty())
+       ans.push_back(0);
+       else 
+       {
+           //Check if first index of queue lies insdie the window 
+           if(q.front()<=i-K)
+           q.pop();
+           
+           if(q.empty())
+           ans.push_back(0);
+           else 
+           ans.push_back(A[q.front()]);
+       }
+   }
+   return ans;
+                                                 
+ }
