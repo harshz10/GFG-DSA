@@ -1,0 +1,21 @@
+//C++
+void pre(Node *root, vector<int>&ans)
+{   
+    if(root==NULL)
+    return;
+    //Node
+    ans.push_back(root->data);
+    //left
+    pre(root->left,ans);
+    //Right
+    pre(root->right,ans);
+}
+
+vector <int> preorder(Node* root)
+{
+  // Your code here
+  vector<int>ans;
+  pre(root,ans);
+  return ans;
+  
+}
