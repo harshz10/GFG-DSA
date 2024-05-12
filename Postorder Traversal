@@ -1,0 +1,20 @@
+//C++
+void Post(Node *root, vector<int>&ans){
+    //base case 
+    if(root==NULL)
+    return;
+    //left
+    Post(root->left,ans);
+    //right
+    Post(root->right,ans);
+    //root
+    ans.push_back(root->data);
+    
+}
+vector <int> postOrder(Node* root)
+{
+  // Your code here
+  vector<int>ans;
+  Post(root,ans);
+  return ans;
+}
