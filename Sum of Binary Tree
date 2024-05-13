@@ -1,0 +1,31 @@
+//C++
+M-1(preorder method )
+
+void Total(Node *root,long int &sum){
+    
+    //base case 
+    if(root==NULL)
+    return;
+    
+    sum+=root->key;
+    Total(root->left,sum);
+    Total(root->right,sum);
+    
+}
+long int sumBT(Node* root)
+{
+    // Code here
+    long int sum = 0;
+    Total(root,sum);
+    return sum;
+}
+
+M-2(left & right) 
+
+long int sumBT(Node* root)
+{
+    // Code here
+    if(root==NULL)
+    return 0;
+    return (root->key + sumBT(root->left) + sumBT(root->right));
+}
