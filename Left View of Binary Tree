@@ -1,0 +1,40 @@
+//C++
+
+// Method 1 (by using vector, queue to store ans to push and pop)
+/Function to return a list containing elements of left view of the binary tree.
+//Segmentation fault 
+//check constraints it can also be zero so two time null push as root
+vector<int> leftView(Node *root)
+{
+   // Your code here
+   
+   vector<int>ans;
+   if(!root)
+   return ans;
+   queue<Node*>q;
+    q.push(root);
+   while(!q.empty())
+   {   
+       //First element of current level
+      
+       ans.push_back(q.front()->data);
+        int n = q.size();
+       while(n--)
+       {
+           Node *temp = q.front();
+           q.pop();
+           //left side 
+           if(temp->left)
+           q.push(temp->left);
+           //right side 
+           if(temp->right)
+           q.push(temp->right);
+       }
+   }
+   
+   
+   return ans;
+   
+   
+   
+}
