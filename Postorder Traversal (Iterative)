@@ -1,0 +1,32 @@
+// by usnig LRN to LRN method for the help of pre order travesel 
+class Solution{
+    public:
+    vector<int> postOrder(Node* root) {
+        // code here
+        
+        stack<Node*>st;
+        st.push(root);
+        
+        vector<int> ans;
+        
+        while(!st.empty()){
+            Node *temp =st.top();
+            st.pop();
+            ans.push_back(temp->data);
+            
+            //left 
+            if(temp->left)
+            st.push(temp->left);
+            
+            //right
+            if(temp->right)
+            st.push(temp->right);
+            
+            
+        }
+        
+        reverse(ans.begin(),ans.end());
+        
+        return ans;
+    }
+};
