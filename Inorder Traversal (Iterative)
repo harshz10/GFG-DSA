@@ -1,0 +1,49 @@
+//C++
+vector<int> inOrder(Node* root)
+    {
+        stack<Node*>st;
+        stack<bool>Visited;
+        st.push(root);
+        Visited.push(0);
+        vector<int>ans;
+        
+        while(!st.empty())
+        {
+            Node *temp = st.top();
+            st.pop();
+            bool flag = Visited.top();
+            Visited.pop();
+            //first time visit 
+            if(flag==0){
+                //Right
+            if(temp->right)
+            {
+                st.push(temp->right);
+                Visited.push(0);
+                
+            }
+            //Node
+            st.push(temp);
+            Visited.push(1);
+            
+          
+            
+            //left
+            if(temp->left)
+            {    
+                
+                st.push(temp->left);
+                Visited.push(0);
+                
+            }
+            
+        }
+        else 
+          //second time visit 
+        {
+            ans.push_back(temp->data);
+        }
+     }
+     
+     return ans;
+    }
