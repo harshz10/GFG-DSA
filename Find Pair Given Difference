@@ -1,0 +1,35 @@
+//C++
+int findPair(int n, int x, vector<int> &arr) {
+        // Sort the array
+        sort(arr.begin(), arr.end());
+
+        int left = 0;
+        int right = 1;
+
+        // Use two pointers to find the pair with difference x
+        while (left < n && right < n) {
+            // Calculate the difference
+            int diff = arr[right] - arr[left];
+
+            // If the difference is equal to x and left is not equal to right
+            if (diff == x && left != right) {
+                return 1;
+            }
+            // If the difference is less than x, move the right pointer to increase the difference
+            else if (diff < x) {
+                right++;
+            }
+            // If the difference is greater than x, move the left pointer to decrease the difference
+            else {
+                left++;
+            }
+
+            // Ensure that the right pointer is always ahead of the left pointer
+            if (left == right) {
+                right++;
+            }
+        }
+
+        // If no such pair is found
+        return -1;
+    }
