@@ -1,0 +1,29 @@
+//C++
+//By using binary search sorting method 
+ int findPeakElement(vector<int>& a) 
+    {
+        // Code here.
+        int n = a.size();
+       int s = 0, e =n-1;
+       int ans=-1;
+       while(s<=e)
+       {
+           int mid= s+(e-s)/2;
+           
+           if(a[mid]>ans) 
+           ans = a[mid];
+           
+          if(mid+1<n && a[mid+1]> a[mid])
+          {
+              s = mid+1;
+              
+          }
+          else
+          {
+              e =mid-1;
+          }
+       }
+       
+       return ans;
+    }
+};
