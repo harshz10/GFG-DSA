@@ -1,0 +1,18 @@
+//C++
+int findClosest( int n, int k,int arr[]) 
+    { 
+        // Complete the function
+        // Nishant Singh
+        // National Institute Of Technology Calicut
+        int left=0,right=n-1;
+        int ans=0;
+        while(left<=right){
+            int mid=left+(right-left)/2;
+            if(abs(ans-k)>abs(arr[mid]-k)) ans=arr[mid];
+            if(abs(ans-k)==abs(arr[mid]-k)) ans=max(ans,arr[mid]);
+            if(arr[mid]>k)
+            right=mid-1;
+            else left=mid+1;
+        }
+        return ans;
+    }
