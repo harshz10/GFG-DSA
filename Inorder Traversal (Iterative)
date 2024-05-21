@@ -47,3 +47,50 @@ vector<int> inOrder(Node* root)
      
      return ans;
     }
+
+//M-2(by using Morris Traversal)
+ vector<int> inOrder(Node* root)
+    {
+        //Left 
+        //Node
+        //Right 
+        
+        vector<int>ans;
+        while(root)
+        {
+            //Left part doesnt exist
+            if(!root->left)
+            {
+                ans.push_back(root->data);
+                root=root->right;
+                
+            }
+            //Left part exist
+            else
+            {    
+                Node *curr = root->left;
+                
+                while*(curr->right&&curr->right!=root)
+                curr = curr->right;
+                //Left subtree Not traverse
+                if(curr->right==NULL)
+                {
+                    curr->right = root;
+                    root = root->left;
+                }
+                else   //Already Traverse
+                {
+                    curr->right = NULL;
+                    ans.push_back(root->data);
+                    curr = curr->right;
+                    
+                }
+                
+                
+               
+            }
+        }
+        
+        return ans;
+        
+    }
