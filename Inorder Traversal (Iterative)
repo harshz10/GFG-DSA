@@ -49,7 +49,7 @@ vector<int> inOrder(Node* root)
     }
 
 //M-2(by using Morris Traversal)
- vector<int> inOrder(Node* root)
+vector<int> inOrder(Node* root)
     {
         //Left 
         //Node
@@ -70,7 +70,7 @@ vector<int> inOrder(Node* root)
             {    
                 Node *curr = root->left;
                 
-                while*(curr->right&&curr->right!=root)
+                while(curr->right&&curr->right!=root)
                 curr = curr->right;
                 //Left subtree Not traverse
                 if(curr->right==NULL)
@@ -82,7 +82,7 @@ vector<int> inOrder(Node* root)
                 {
                     curr->right = NULL;
                     ans.push_back(root->data);
-                    curr = curr->right;
+                     root = root->right;
                     
                 }
                 
@@ -90,6 +90,10 @@ vector<int> inOrder(Node* root)
                
             }
         }
+        
+        return ans;
+        
+    }
         
         return ans;
         
