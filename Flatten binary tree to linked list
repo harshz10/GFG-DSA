@@ -1,0 +1,26 @@
+//c++
+//try again
+void flatten(Node *root)
+    {
+        //code here
+        while(root)
+        {   
+            //Left part doesnot exist
+            if(!root->left)
+            root = root->right;
+            //Exist
+            else 
+            {
+                Node *curr = root->left;
+                while(curr->right)
+                curr = curr->right;
+                
+                
+                curr->right = root->right;
+                root->right = root->left;
+                root->left = NULL;
+                root = root->right;
+            }
+            
+        }
+    }
