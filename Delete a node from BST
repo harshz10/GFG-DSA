@@ -1,0 +1,74 @@
+//C++
+// Function to delete a node from BST.
+//Good question 
+Node *deleteNode(Node *root, int target) {
+    // your code goes here
+    //base condition 
+    if(!root)
+    return NULL;
+    
+    if(root->data>target){
+    root->left = deleteNode(root->left,target);
+    
+        return root;
+    }
+    
+    else if(root->data<target){
+    root->right = deleteNode(root->right,target);
+    return root;
+    }
+    else
+    {
+        //Leaf Node 
+        if(!root->left&&!root->right)
+        {
+            delete root;
+            return NULL;
+        }
+        // 1 child exist
+        else if(!root->right) //left child exist 
+        {
+             Node *temp = root->left;
+             delete root;
+             return temp;
+        }
+        else if(!root->left) //Right child exist 
+        {
+            Node *temp = root->right;
+            delete root;
+            return temp;
+        }
+        //2 child exist
+        else
+        {
+            //find the gretest elemet from left
+            Node *child = root->left;
+            Node *parent = root;
+            
+            //Right most node tak  pauchna hai
+            while(child->right)
+            {
+                parent =child;
+                child = child->right;
+                
+            }
+            
+            if(root!=parent)
+            {
+                parent->right = child->left;
+                child->left = root->left;
+                child->right = root->right;
+                delete root;
+                return child;
+            }
+            else
+            {
+                //root and parent same
+                child->right = root->right;
+                delete root;
+                return child;
+            }
+        }
+    }
+    
+}
