@@ -1,0 +1,35 @@
+//C++
+class Solution
+
+{ 
+    public:
+    
+    void Klargest(Node *root, int &ans, int &K)
+    {
+        if(!root)
+        return;
+        
+        //right
+        Klargest(root->right,ans, K);
+        K--;
+        if(K==0)
+        ans = root->data; 
+        //Node
+        if(K<=0)
+        return;
+        
+        //left
+        Klargest(root->left,ans,K);
+       
+    }
+    
+   
+    int kthLargest(Node *root, int K)
+    {
+        
+        //Your code here
+        int ans;
+        Klargest(root,ans,K);
+        return ans;
+    }
+};
