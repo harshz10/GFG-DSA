@@ -1,0 +1,28 @@
+//C++
+
+//method-1(sort method easy pesy)
+   void matchPairs(int n, char nuts[], char bolts[]) {
+        // code here
+        
+        sort(nuts,nuts+n);
+        sort(bolts,bolts+n);
+    }
+
+//method-2 (unorder map + stl + refrence)
+ void matchPairs(int n, char nuts[], char bolts[]) {
+        // code here
+        char temp[]= { '!', '#' ,'$', '%' , '&' ,'*', '?' , '@' , '^'  };
+        unordered_map<char,int> mm;
+        int j=0;
+        for(int i=0;i<n;i++)
+        mm[nuts[i]]++;
+        
+        for(int i=0;i<9;i++){
+            if(mm[temp[i]]){
+                nuts[j]=temp[i];
+                bolts[j]=temp[i];
+                j++;
+            }
+        }
+        
+    }
