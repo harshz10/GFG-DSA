@@ -1,0 +1,18 @@
+//c++
+Node* deleteNode(Node* head_ref, int x) {
+        // Your code here
+        
+        Node *curr = head_ref , *prev = NULL;
+        int count = 1;
+        if(count == x){
+            curr->next->prev = NULL;
+            return curr->next;
+        }
+        while(curr->next != NULL and count < x){
+            curr = curr->next;
+            
+            count++;
+        }
+        curr->prev->next = curr->next;
+        return head_ref;
+    }
