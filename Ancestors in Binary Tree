@@ -1,0 +1,21 @@
+//C++
+   vector<int> ans;
+    void help(Node *root,int target,vector<int> &temp){
+        if(!root)
+           return;
+           if(root->data==target){
+               ans = temp;
+               return ;
+           }
+           temp.push_back(root->data);
+           help(root->left,target,temp);
+           help(root->right,target,temp);
+           temp.pop_back();
+    }
+    vector<int> Ancestors(struct Node *root, int target) {
+        // Code here
+        vector<int> temp;
+        help(root,target,temp);
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
