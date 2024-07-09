@@ -1,0 +1,34 @@
+//C++
+int threeSumClosest(vector<int> arr, int target) {
+        // Your code goes here
+        int n = arr.size();
+        
+        int closestSum = arr[0] + arr[1] + arr[2];
+        
+        sort(arr.begin() , arr.end());
+        
+        for(int k = 0; k<=n-3; k++){
+            
+            int i = k+1;
+            int j = n-1;
+            
+            while(i<j) {
+                   
+                   int sum = arr[k] + arr[i] + arr[j];
+                    
+                   if (abs(target - sum) < abs(target - closestSum) ||
+                    (abs(target - sum) == abs(target - closestSum) && sum > closestSum)) {
+                    closestSum = sum;
+                      
+                    }
+                      if(sum < target)
+                        i++;
+                    else
+                        j--;
+            }
+        }
+        
+        
+   
+        return closestSum;
+    }
