@@ -1,0 +1,16 @@
+//C++
+ bool hasPathSum(Node *root, int target) {
+        // Your code here
+        //base case 
+        if(root==NULL){
+            return false;
+        }
+        
+        //Recursive case
+        if(root-> left == NULL && root->right == NULL){
+            return target==root->data;
+        }
+        int newtarget = target - root->data;
+        
+        return hasPathSum(root->left,newtarget) || hasPathSum(root->right,newtarget);
+    }
