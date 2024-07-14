@@ -1,0 +1,27 @@
+//C++
+//(TLE) M-1
+sort(arr.begin(),arr.end());
+
+//M-2
+void segregate0and1(vector<int> &super) {
+        // code here
+       int vegita = 0, goku= super.size()-1;
+       
+       while(vegita<goku)
+       {
+           if(super[vegita] == 0){
+             vegita++;
+           }
+           else
+           if(super[goku]==0)
+           {
+               swap(super[goku],super[vegita]);
+               vegita++,goku--;
+           }
+           else
+           {
+               goku--;
+           }
+       }
+       
+    }
