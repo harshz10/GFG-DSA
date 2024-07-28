@@ -1,0 +1,13 @@
+//C++
+string removeDups(string str) {
+        string ans = "";
+        bool temp[26];
+        for(auto x:str){
+            if(!temp[x-'a']){
+                ans+=x;
+                temp[x-'a']=true;
+            }
+        }
+        
+        return ans;
+    }
