@@ -1,0 +1,66 @@
+//c++
+class Solution {
+  public:
+    vector<int> spirallyTraverse(vector<vector<int> > &matrix) {
+        // code here
+        int r,c;
+        
+        vector<int>result;
+        int top =0;
+        int down = r-1;
+        int left = 0;
+        int right = c-1;
+        
+        int dir= 0;
+        //dir 
+        //left to right 
+        //top to down
+        //right to left 
+        // down to top
+        
+        while(top<=down && left<=right){
+        if(dir==0){
+            //left to right
+            //constant: row
+            
+            for(int i=left; i<=right;i++){
+            result.push_back(matrix[top][i]);
+            }
+            top++;
+        }
+        
+        if(dir == 1){
+        //top down
+        //constant: column (right)
+        for(int i=top;i<=down;i++){
+            result.push_back(matrix[i][right]);
+            
+        }
+        right--;
+        
+        }
+        
+        if(dir==2){
+        //right to left
+        //constant:row(down)
+        for(int i=right;i>=left;i--){
+            result.push_back(matrix[down][i]);
+        }
+        down--;
+    }
+    
+    if(dir==3){
+        //down to top
+        //constant: col(left)
+        for(int i =down;i>=top;i--){
+            result.push_back(matrix[i][left]);
+        }
+        left++;
+    }
+    dir++;
+    if(dir==4)
+    dir=0;
+}
+   return result;
+    }
+};
