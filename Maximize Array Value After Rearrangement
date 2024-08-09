@@ -1,0 +1,15 @@
+//C++
+class Solution {
+  public:
+    int Maximize(vector<int> arr) {
+        int  n = arr.size();
+    
+        long long sum=0;
+        int mod = 1000000007;
+        sort(arr.begin(),arr.end());
+        for(long long int i=0;i<n;i++){
+            sum = (sum+(arr[i]*i))%1000000007;
+        }
+        return sum;
+    }
+};
