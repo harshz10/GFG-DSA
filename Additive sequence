@@ -1,4 +1,4 @@
-// C++
+// C++ notes
 
     string findSum(string a,string b){
         string ans="";
