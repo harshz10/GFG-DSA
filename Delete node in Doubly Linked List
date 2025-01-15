@@ -1,4 +1,4 @@
-//c++
+//c++ solution
 Node* deleteNode(Node* head_ref, int x) {
         // Your code here
         
