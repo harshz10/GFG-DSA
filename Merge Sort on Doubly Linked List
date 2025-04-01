@@ -1,4 +1,4 @@
-//C++
+//C++ code
 class Solution {
   public:
     // Function to sort the given doubly linked list using Merge Sort.
